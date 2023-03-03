@@ -57,16 +57,21 @@ public class TestTable extends JFrame {
         tf.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ta.setText("");
-                int num = Integer.parseInt(tf.getText());
-                for(int i = 1 ; i <= 10 ; i++){
-                    int result = num * i;
+                String value = tf.getText();
+                if(value.isEmpty()){
+                    JOptionPane.showMessageDialog(null,"Please input a number");
+                }else {
+                    ta.setText("");
+                    int num = Integer.parseInt(tf.getText());
+                    for (int i = 1; i <= 10; i++) {
+                        int result = num * i;
 
-                    String r = String.valueOf(result);
-                    String n = String.valueOf(num);
-                    String incr = String.valueOf(i);
+                        String r = String.valueOf(result);
+                        String n = String.valueOf(num);
+                        String incr = String.valueOf(i);
 
-                    ta.append(n + " X " + incr + " = " + r +"\n");
+                        ta.append(n + " X " + incr + " = " + r + "\n");
+                    }
                 }
             }
         });
